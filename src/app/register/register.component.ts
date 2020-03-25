@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+
+
 
 @Component({
   selector: 'app-register',
@@ -10,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   userform;
   
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userservice: UserService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -41,6 +44,15 @@ export class RegisterComponent implements OnInit {
 
   userSubmit(formdata){
 
+    if(this.userform.invalid){
+      // alert('incorrect data')
+
+      return;
+    }
+
+    this.userservice.addUser(formdata).subscribe(data => {
+      console.log(data);
+    })
   }
 
   getControl(){

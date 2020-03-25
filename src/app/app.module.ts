@@ -14,6 +14,9 @@ import {MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatInputModule,
     ReactiveFormsModule, 
     FormsModule,
+    HttpClientModule,
+    SweetAlert2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
